@@ -1,0 +1,11 @@
+<h1>商品一覧</h1>
+<ul>
+<%# 恥ずかしいコメントはここ  %>
+<!-- html のコメントはソースに表示される -->
+  <% @items.each do |item| %>
+    <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
+  <% end -%>
+</ul>
+
+
+
