@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   get '/items/new' => 'items#new'
+  get '/items/:id/edit' => 'items#edit'
   get '/items' => 'items#index'
   get '/items/:id' =>  'items#show'
   post '/items' => 'items#create'
+  patch '/items/:id' => 'items#update'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

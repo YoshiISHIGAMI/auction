@@ -12,14 +12,24 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(post_params)
     @item.save
+    redirect_to "/items/#{@item.id}"
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update_attributes(post_params)
     redirect_to "/items/#{@item.id}"
   end
 
   private
 
-  def item_params
+  def post_params
     # params.require(:key).permit(:filter)
     params.require(:item).permit(
       :name,
